@@ -546,7 +546,7 @@
                         <p class="cuerpo">Gracias por ser mi mamá, mi amiga, mi confidente y mi mariposa eterna. Te amo más de lo que las palabras pueden expresar y más de lo que el tiempo puede medir</p>
 
                         <div class="bloque-firma">
-                            <p class="firma">Con todo mi amor para siempre<br>Tu hij@ que te adora ♥</p>
+                            <p class="firma">Con todo mi amor para siempre<br>Con amor tu hijo Santi ♥</p>
                         </div>
                     </div>
                 </div>
@@ -630,6 +630,7 @@
                 envoltura.classList.add('abierto');
                 estaAbierto = true;
                 instruccion.style.opacity = '0';
+                instruccion.style.display = 'none';
                 crearEfectoMagico(e.clientX, e.clientY);
             } else {
                 envoltura.classList.remove('abierto');
@@ -637,6 +638,7 @@
                 estaAbierto = false;
                 setTimeout(() => {
                     envoltura.classList.remove('cerrando');
+                    instruccion.style.display = 'block';
                     instruccion.style.opacity = '1';
                 }, 1200);
             }
