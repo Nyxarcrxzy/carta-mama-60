@@ -2,12 +2,12 @@
 <html dir="ltr" lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
 
@@ -22,61 +22,56 @@
             user-select: none;
         }
 
-        /* --- PALETA DE COLORES ELEGANTE PARA 60 AÑOS (Tonos Champagne/Oro/Bordó) --- */
+        /* --- PALETA DE COLORES ROSA ELEGANTE PARA 60 AÑOS --- */
         :root {
-            /* Fondo: Degradado elegante champagne/bordó profundo */
-            --color-fondo-gradiente-1: #2d1b2e; /* Bordó oscuro profundo */
-            --color-fondo-gradiente-2: #f4e4d7; /* Champagne claro */
+            /* Fondo degradado rosa profundo a melocotón */
+            --color-fondo-gradiente-1: #5a2a40;
+            --color-fondo-gradiente-2: #fad0c4;
             
-            /* Sobre: Tonos dorados y bordó elegantes */
-            --color-sobre-cuerpo: #8b6f47; /* Dorado bronceado */
-            --color-sobre-solapa: #d4af76; /* Dorado champagne */
-            --color-sobre-solapa-superior: #6d4e37; /* Marrón chocolate elegante */
+            /* Sobre en tonos rosa */
+            --color-sobre-cuerpo: #b06c7e;
+            --color-sobre-solapa: #e89bb0;
+            --color-sobre-solapa-superior: #b06c7e;
             
             /* Carta y detalles */
-            --color-carta: #fffef9; /* Crema marfil muy suave */
-            --color-sello: #d4af76; /* Dorado champagne */
-            --color-sombra-fuerte: rgba(30, 15, 20, 0.6);
-            --color-sombra-suave: rgba(30, 15, 20, 0.3);
-            --color-texto: #3a2520; /* Chocolate oscuro elegante */
-            --color-firma: #8b4513; /* Marrón rojizo cálido */
+            --color-carta: #fffafb;
+            --color-sello: #ff69b4;
+            --color-sombra-fuerte: rgba(60, 20, 40, 0.5);
+            --color-sombra-suave: rgba(60, 20, 40, 0.25);
+            --color-texto: #4a1532;
+            --color-firma: #b5385d;
             
-            /* --- TIPOGRAFÍAS ELEGANTES --- */
+            /* Tipografías elegantes */
             --fuente-titulo: 'Great Vibes', cursive;
-            --fuente-fecha: 'Cormorant Garamond', serif;
-            --fuente-carta: 'Playfair Display', serif; 
-            --duracion-apertura: 1.7s;
+            --fuente-fecha: 'Libre Baskerville', serif;
+            --fuente-carta: 'Dancing Script', cursive;
+            --duracion-apertura: 1.5s;
         }
 
         /* --- PANTALLA DE CARGA --- */
         #loader {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #1a0f14; display: flex; justify-content: center; align-items: center;
+            background: #24111a; display: flex; justify-content: center; align-items: center;
             flex-direction: column; z-index: 1000; transition: opacity 0.7s ease, visibility 0.7s ease;
         }
         #loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-icon { font-size: 80px; text-shadow: 0 0 15px rgba(212, 175, 118, 0.7); }
+        .loader-icon { font-size: 80px; text-shadow: 0 0 15px rgba(255, 182, 193, 0.5); }
         .progress-bar-container {
-            width: 250px; height: 15px; background-color: #2d1b1f;
+            width: 250px; height: 15px; background-color: #331e28;
             border-radius: 10px; overflow: hidden; margin-top: 20px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
-            border: 1px solid #4a3530;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+            border: 1px solid #5a3848;
         }
         .progress-bar {
             width: 0%; height: 100%; 
-            
-            /* Degradado dorado elegante */
-            background: linear-gradient(90deg, #d4af76, #f4d03f);
-            
-            /* Sombra resplandeciente dorada */
-            box-shadow: 0 0 15px rgba(212, 175, 118, 0.8);
-            
+            background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
             border-radius: 10px; 
             transition: width 0.3s ease;
         }
         #progress-percentage {
             margin-top: 10px; font-family: 'Great Vibes', serif;
-            font-size: 2rem; color: #f4e4d7;
+            font-size: 2rem; color: #ffe6eb;
         }
 
         html, body {
@@ -86,6 +81,7 @@
             padding: 0;
             overflow: hidden;
             position: fixed;
+            touch-action: pan-y;
         }
 
         body {
@@ -108,12 +104,11 @@
             height: 100%;
             z-index: -2; 
             
-            background: linear-gradient(135deg, rgba(45, 27, 46, 0.85) 0%, rgba(244, 228, 215, 0.7) 100%),
-                        radial-gradient(circle at 30% 50%, rgba(212, 175, 118, 0.2) 0%, transparent 50%);
-            background-color: #2d1b2e;
+            background: linear-gradient(135deg, rgba(90, 42, 64, 0.8) 0%, rgba(250, 208, 196, 0.85) 100%);
+            background-color: #5a2a40;
             
             filter: blur(0px); 
-            transform: scale(1.1); 
+            transform: scale(1.05); 
             pointer-events: none; 
         }
 
@@ -127,11 +122,10 @@
             font-size: clamp(3rem, 9vw, 6rem);
             color: #fff; 
 
-            /* Sombras doradas elegantes */
             text-shadow: 
-                2px 2px 10px rgba(58, 37, 32, 0.9),
-                0 0 25px rgba(212, 175, 118, 0.8),
-                0 0 45px rgba(244, 208, 63, 0.4);
+                2px 2px 10px rgba(61, 8, 41, 0.8),
+                0 0 25px rgba(74, 21, 50, 0.9),
+                0 0 45px rgba(255, 105, 180, 0.5);
 
             text-align: center; 
             margin-bottom: 40px; 
@@ -141,12 +135,12 @@
         }
 
         .subtitulo-60 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Dancing Script', cursive;
             font-size: clamp(1.8rem, 5vw, 3rem);
-            color: #d4af76;
+            color: #ffc1e3;
             text-shadow: 
                 1px 1px 5px rgba(0, 0, 0, 0.7),
-                0 0 15px rgba(212, 175, 118, 0.6);
+                0 0 15px rgba(255, 105, 180, 0.8);
             text-align: center;
             margin-top: -20px;
             margin-bottom: 30px;
@@ -159,13 +153,12 @@
         .envoltura-sobre {
             position: relative; width: 320px; height: 220px;
             cursor: pointer;
+            will-change: transform;
 
-            /* Sombras elegantes profundas */
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5)) 
-                    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4)) 
-                    drop-shadow(0 30px 60px rgba(212, 175, 118, 0.2));
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.459)) 
+                    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.293)) 
+                    drop-shadow(0 30px 60px rgba(0, 0, 0, 0.264));
 
-            /* Animación latido elegante */
             animation: latido-suave 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             transform-style: preserve-3d; 
             transition: transform 0.3s ease;
@@ -193,7 +186,7 @@
         .sobre {
             position: absolute; width: 100%; height: 100%;
             background-color: var(--color-sobre-cuerpo);
-            border-radius: 15px; box-shadow: inset 0 0 30px rgba(0,0,0,0.2);
+            border-radius: 15px; box-shadow: inset 0 0 30px rgba(0,0,0,0.15);
         }
 
         .sobre::before {
@@ -219,7 +212,7 @@
             background-color: var(--color-sobre-solapa-superior);
             clip-path: polygon(0 0, 100% 0, 50% 100%);
             border-radius: 15px 15px 0 0; transform-origin: top; z-index: 6;
-            border-bottom: 2px solid rgba(212, 175, 118, 0.3);
+            border-bottom: 2px solid rgba(255,255,255,0.15);
         }
         .solapa-izquierda {
             top: 0; left: 0; width: 52%; height: 100%;
@@ -235,7 +228,7 @@
         }
         .solapa-superior::after, .solapa-izquierda::after, .solapa-derecha::after { clip-path: inherit; }
 
-        /* --- SELLO ELEGANTE --- */
+        /* --- SELLO ELEGANTE ROSA--- */
         .sello {
             position: absolute; 
             top: 56%; 
@@ -246,22 +239,22 @@
             transform: translate(-50%, -65%); 
             z-index: 10;
             transition: opacity 0.5s 0.2s ease-out;
+            will-change: transform, opacity;
             
-            /* Sello elegante con número 60 */
-            background: radial-gradient(circle, #d4af76 0%, #8b6f47 100%);
+            background: radial-gradient(circle, #ffb6c1 0%, #ff69b4 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
             font-weight: 700;
-            color: #2d1b2e;
-            border: 4px solid #f4d03f;
-            box-shadow: 0 0 20px rgba(212, 175, 118, 0.8), inset 0 0 15px rgba(0,0,0,0.2);
+            color: #4a1532;
+            border: 4px solid #ffc1e3;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.9), inset 0 0 15px rgba(0,0,0,0.1);
             
             animation: latido-sello 2s infinite ease-in-out;
-            filter: drop-shadow(0 5px 15px rgba(212, 175, 118, 0.6));
+            filter: drop-shadow(0 5px 15px rgba(255, 182, 193, 0.9));
         }
         
         .sello:hover { 
@@ -287,10 +280,11 @@
             transform: translate(-50%, -40%) scale(1);
             opacity: 0; z-index: 1; pointer-events: none;
             border-radius: 10px; padding: 25px; box-sizing: border-box;
-            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4);
             background: var(--color-carta);
             overflow: hidden;
-            border: 3px solid #d4af76;
+            border: 2px solid #f1a1b5;
+            will-change: transform, opacity;
         }
 
         .carta::before {
@@ -298,9 +292,9 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 118, 0.05) 0%, rgba(244, 228, 215, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.05) 0%, rgba(255, 192, 203, 0.08) 100%);
             z-index: 1;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
         .envoltura-sobre.abierto .carta {
@@ -357,6 +351,7 @@
             box-sizing: border-box;
             padding-bottom: 60px;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
         }
 
         .contenido * {
@@ -370,24 +365,24 @@
             font-size: 1.1rem; 
             font-family: var(--fuente-fecha); 
             font-style: italic; 
-            color: #8b6f47; 
+            color: #8a4f6a; 
             margin-bottom: 20px; 
         }
 
         .contenido .saludo { 
             font-size: 2.8rem; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             font-weight: bold; 
-            color: #8b4513; 
+            color: #b5385d; 
             font-family: var(--fuente-titulo);
             text-align: center;
         }
 
         .contenido .cuerpo { 
-            font-size: 1.4rem; 
+            font-size: 1.5rem; 
             line-height: 1.8; 
-            margin-bottom: 20px;
-            text-align: justify;
+            margin-bottom: 18px;
+            text-align: left;
         }
 
         .contenido .firma { 
@@ -410,29 +405,30 @@
 
         @media (max-width: 768px) {
             body::before {
-                background: linear-gradient(135deg, rgba(45, 27, 46, 0.9) 0%, rgba(244, 228, 215, 0.8) 100%);
-                background-color: #2d1b2e;
+                background: linear-gradient(135deg, rgba(90, 42, 64, 0.9) 0%, rgba(250, 208, 196, 0.95) 100%);
+                background-color: #5a2a40;
             }
-            .main-content { transform: translateY(-10vh); }
-            h1 { font-size: 3.2rem; margin-bottom: 20px;}
-            .subtitulo-60 { font-size: 1.6rem; margin-bottom: 20px; }
+            .main-content { transform: translateY(-8vh); }
+            h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); margin-bottom: 15px;}
+            .subtitulo-60 { font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; }
             .envoltura-sobre { width: 280px; height: 193px; }
-            .contenido { padding-right: 5px;}
-            .contenido .saludo { font-size: 2rem; }
-            .contenido .cuerpo { font-size: 1.2rem; }
+            .contenido { padding-right: 8px;}
+            .contenido .saludo { font-size: 2.2rem; }
+            .contenido .cuerpo { font-size: 1.3rem; line-height: 1.7; }
             .contenido .firma { font-size: 2rem; text-align: center; }
-            .bloque-firma { flex-direction: column; align-items: center; gap: 20px; }
+            .bloque-firma { flex-direction: column; align-items: center; gap: 15px; }
         }
 
         .efecto-magico {
             position: fixed; font-size: var(--fs);
-            text-shadow: 0 0 10px rgba(212, 175, 118, 0.8);
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
             pointer-events: none; opacity: 0;
             animation: efecto-magico-anim var(--dur) ease-out forwards;
+            will-change: transform, opacity;
         }
         @keyframes efecto-magico-anim {
             0% { opacity: 0; transform: translate(0, 0) scale(0.8) rotate(0deg); }
-            25% { opacity: 1; transform: translate(var(--x-mid), var(--y-mid)) scale(1.8) rotate(var(--r-mid)); }
+            25% { opacity: 1; transform: translate(var(--x-mid), var(--y-mid)) scale(1.5) rotate(var(--r-mid)); }
             100% { opacity: 0; transform: translate(var(--x-end), var(--y-end)) scale(var(--s-end)) rotate(var(--r-end)); }
         }
 
@@ -446,15 +442,16 @@
         .efecto-ascendente {
             position: absolute; bottom: -50px;
             font-size: var(--fs); color: #fff;
-            opacity: 0.7; animation: subir-efecto var(--dur) linear forwards;
-            text-shadow: 0 0 5px #d4af76;
+            opacity: 0.6; animation: subir-efecto var(--dur) linear forwards;
+            text-shadow: 0 0 5px #ffb6c1;
+            will-change: transform, opacity;
         }
         @keyframes subir-efecto {
-            0% { transform: translateY(0); opacity: 0.7; }
+            0% { transform: translateY(0); opacity: 0.6; }
             100% { transform: translateY(-110vh); opacity: 0; }
         }
 
-        /* --- ESTILOS PARA LLUVIA DE CELEBRACIÓN --- */
+        /* --- LLUVIA DE CELEBRACIÓN OPTIMIZADA --- */
         #falling-emojis-container {
             position: fixed;
             top: 0;
@@ -469,9 +466,10 @@
         .falling-emoji {
             position: absolute;
             top: -50px; 
-            opacity: 0.75; 
+            opacity: 0.7; 
             animation: fall linear;
-            filter: drop-shadow(0 0 3px rgba(212, 175, 118, 0.5));
+            filter: drop-shadow(0 0 3px rgba(255, 182, 193, 0.5));
+            will-change: transform;
         }
 
         @keyframes fall {
@@ -492,7 +490,7 @@
             margin-top: 30px;
             font-size: 1.1rem;
             font-style: italic;
-            text-shadow: 0 0 10px rgba(212, 175, 118, 0.8);
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
             animation: aparecer-suave 2s infinite ease-in-out;
             transition: opacity 0.5s ease;
             z-index: 5;
@@ -534,14 +532,17 @@
                 <div class="carta">
                     <div class="contenido">
                         <p class="fecha">31 de Julio, 2026</p>
-                        <p class="saludo">Querida Mamá</p>
-                        <p class="cuerpo">Hoy celebramos seis décadas de tu existencia, seis décadas de amor incondicional, de sabiduría y de una elegancia que trasciende el tiempo. Eres la prueba viviente de que la belleza y la gracia no tienen edad.</p>
-                        <p class="cuerpo">En estos 60 años has construido un legado de amor, fortaleza y bondad que nos inspira cada día. Eres nuestra luz, nuestra guía y nuestro ejemplo de cómo vivir con dignidad y pasión.</p>
-                        <p class="cuerpo">Gracias por cada abrazo, cada consejo, cada sonrisa y cada lágrima compartida. Gracias por ser la mejor mamá del mundo y por enseñarnos que la edad es solo un número cuando el corazón está lleno de vida.</p>
-                        <p class="cuerpo">Que estos 60 años sean solo el comienzo de una nueva etapa llena de alegría, salud y momentos inolvidables. Te amamos con todo nuestro corazón.</p>
+                        <p class="saludo">Mi Querida Mariposa</p>
+                        <p class="cuerpo">Hoy celebramos tus 60 años y no puedo evitar pensar en todo el camino que hemos recorrido juntos. Recuerdo cuando te decía mariposa porque siempre has sido eso para mí... libre, hermosa y llena de color en cada momento de mi vida</p>
+                        <p class="cuerpo">Has sido mi guía cuando me sentía perdido, mi luz cuando todo parecía oscuro y mi refugio cuando el mundo se sentía demasiado pesado. No hay palabras suficientes para expresar todo lo que significas para mí</p>
+                        <p class="cuerpo">Recuerdo cada abrazo que me diste cuando más lo necesitaba, cada consejo que guardé en mi corazón como un tesoro, cada sonrisa tuya que iluminó mis días más grises. Has construido una vida llena de amor, de sacrificio y de una belleza que no se mide en años sino en momentos</p>
+                        <p class="cuerpo">Estos 60 años no son solo números... son historias, son risas compartidas, son lágrimas secadas, son sueños cumplidos y esperanzas renovadas. Cada arruga en tu rostro cuenta una batalla ganada, cada cana en tu cabello es un testimonio de tu sabiduría</p>
+                        <p class="cuerpo">Quiero que sepas que eres mi inspiración diaria. La manera en que enfrentas la vida con valentía, cómo amas sin condiciones y cómo siempre encuentras la forma de hacernos sentir especiales... eso es lo que te hace única</p>
+                        <p class="cuerpo">Hoy en tu cumpleaños número 60, solo deseo que la vida te devuelva aunque sea una pequeña parte de todo el amor que tú has dado. Que cada nuevo día traiga alegría a tu corazón, salud a tu cuerpo y paz a tu alma</p>
+                        <p class="cuerpo">Gracias por ser mi mamá, mi amiga, mi confidente y mi mariposa eterna. Te amo más de lo que las palabras pueden expresar y más de lo que el tiempo puede medir</p>
 
                         <div class="bloque-firma">
-                            <p class="firma">Con infinito amor,<br>Tu familia ♥</p>
+                            <p class="firma">Con todo mi amor para siempre<br>Tu hij@ que te adora ♥</p>
                         </div>
                     </div>
                 </div>
@@ -553,11 +554,11 @@
     </main>
 
     <script>
-        // --- CONFIGURACIÓN ---
-        const emojisLluvia = ['🎂', '🎉', '🎊', '🥂', '✨', '🎈', '💐', '🌟', '💝', '🎁'];
-        const emojisAscendentes = ['✨', '🥂', '🎊', '🎉', '💫'];
-        const cantidadLluvia = 40;
-        const cantidadAscendentes = 10;
+        // --- CONFIGURACIÓN OPTIMIZADA (menos emojis para evitar lag) ---
+        const emojisLluvia = ['🌸', '💐', '🌺', '🌷', '💝', '✨', '🎂', '🎉', '💖', '🦋'];
+        const emojisAscendentes = ['✨', '💖', '🌸', '💝', '🦋'];
+        const cantidadLluvia = 25; // Reducido de 40 a 25 para mejor rendimiento
+        const cantidadAscendentes = 8;
 
         // --- FUNCIONES DE EFECTOS ---
         function crearLluviaEmojis() {
@@ -566,10 +567,10 @@
                 const emoji = document.createElement('div');
                 emoji.className = 'falling-emoji';
                 emoji.textContent = emojisLluvia[Math.floor(Math.random() * emojisLluvia.length)];
-                emoji.style.fontSize = `${Math.random() * 20 + 10}px`;
+                emoji.style.fontSize = `${Math.random() * 15 + 12}px`;
                 emoji.style.left = `${Math.random() * 100}vw`;
-                emoji.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                emoji.style.animationDelay = `${Math.random() * 10}s`;
+                emoji.style.animationDuration = `${Math.random() * 4 + 6}s`;
+                emoji.style.animationDelay = `${Math.random() * 8}s`;
                 container.appendChild(emoji);
             }
         }
@@ -580,28 +581,28 @@
                 const emoji = document.createElement('div');
                 emoji.className = 'efecto-ascendente';
                 emoji.textContent = emojisAscendentes[Math.floor(Math.random() * emojisAscendentes.length)];
-                emoji.style.fontSize = `${Math.random() * 20 + 15}px`;
+                emoji.style.fontSize = `${Math.random() * 18 + 12}px`;
                 emoji.style.left = `${Math.random() * 100}vw`;
-                emoji.style.setProperty('--dur', `${Math.random() * 5 + 8}s`);
+                emoji.style.setProperty('--dur', `${Math.random() * 4 + 7}s`);
                 container.appendChild(emoji);
-                setTimeout(() => emoji.remove(), 13000);
-            }, 300);
+                setTimeout(() => emoji.remove(), 11000);
+            }, 400); // Intervalo aumentado para mejor rendimiento
         }
 
         function crearEfectoMagico(x, y) {
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 6; i++) { // Reducido de 8 a 6
                 const efecto = document.createElement('div');
                 efecto.className = 'efecto-magico';
                 efecto.textContent = emojisLluvia[Math.floor(Math.random() * emojisLluvia.length)];
                 efecto.style.left = `${x}px`;
                 efecto.style.top = `${y}px`;
                 
-                const dur = Math.random() * 0.5 + 1;
+                const dur = Math.random() * 0.4 + 0.8;
                 efecto.style.setProperty('--dur', `${dur}s`);
-                efecto.style.setProperty('--fs', `${Math.random() * 20 + 20}px`);
+                efecto.style.setProperty('--fs', `${Math.random() * 18 + 18}px`);
                 
-                const angle = (Math.PI * 2 * i) / 8;
-                const distance = Math.random() * 100 + 50;
+                const angle = (Math.PI * 2 * i) / 6;
+                const distance = Math.random() * 80 + 40;
                 efecto.style.setProperty('--x-mid', `${Math.cos(angle) * distance * 0.5}px`);
                 efecto.style.setProperty('--y-mid', `${Math.sin(angle) * distance * 0.5}px`);
                 efecto.style.setProperty('--x-end', `${Math.cos(angle) * distance}px`);
