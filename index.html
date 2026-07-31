@@ -349,7 +349,7 @@
             overflow-x: hidden; 
             padding-right: 15px;
             box-sizing: border-box;
-            padding-bottom: 60px;
+            padding-bottom: 100px;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
         }
@@ -412,11 +412,12 @@
             h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); margin-bottom: 15px;}
             .subtitulo-60 { font-size: clamp(1.4rem, 4vw, 1.8rem); margin-bottom: 20px; }
             .envoltura-sobre { width: 280px; height: 193px; }
-            .contenido { padding-right: 8px;}
+            .contenido { padding-right: 8px; padding-bottom: 120px;}
             .contenido .saludo { font-size: 2.2rem; }
             .contenido .cuerpo { font-size: 1.3rem; line-height: 1.7; }
             .contenido .firma { font-size: 2rem; text-align: center; }
             .bloque-firma { flex-direction: column; align-items: center; gap: 15px; }
+            .instruccion { font-size: 1rem; margin-top: 20px; }
         }
 
         .efecto-magico {
@@ -488,17 +489,20 @@
             font-family: var(--fuente-fecha);
             color: #fff;
             margin-top: 30px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-style: italic;
-            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+            text-shadow: 
+                0 0 10px rgba(255, 105, 180, 0.9),
+                2px 2px 8px rgba(0, 0, 0, 0.8);
             animation: aparecer-suave 2s infinite ease-in-out;
             transition: opacity 0.5s ease;
             z-index: 5;
-            pointer-events: none; 
+            pointer-events: none;
+            position: relative;
         }
 
         @keyframes aparecer-suave {
-            0%, 100% { opacity: 0.4; transform: translateY(0); }
+            0%, 100% { opacity: 0.6; transform: translateY(0); }
             50% { opacity: 1; transform: translateY(-5px); }
         }
     </style>
